@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% set bodyId = "page-ideas" %}
+
+
+{% block title %}
+    <title>Ideias - Casa Criativa</title>>
+{% endblock %}
+
+
+{% block content %}
+<header>
+    <a href="/">
+        <img src="logo.png" alt="Imagem da Logomarca">
+    </a>
+    <nav>
+        <li><a href="/">Início</a></li>
+        <li><a class="button" href="#" onclick="onOff()">Nova Ideia</a></li>
+    </nav>
+</header>
+
+<section id="title">
+    <p>em exibição</p>
+    <h1>Ideias</h1>
+</section>
+
+<main>
+    <section id="ideas">
+        {% for idea in ideas %}
+        <div class="idea">
+            <img src="{{idea.image}}" alt="Imagem de {{idea.title}}">
+            <div class="content">
+                <h3>{{idea.title}}</h3>
+                <p>{{idea.category}}</p>
+                <div class="description">{{idea.description}}</div>
+                <a href="{{idea.link}}" target="_blank">Ir para a Ideia</a>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</main>
+
+<footer>
+    Com ♥️ <a href="https://twitter.com/pedrogawa" target="_blank">Pedrogawa</a>
+</footer>
+{% endblock %}
